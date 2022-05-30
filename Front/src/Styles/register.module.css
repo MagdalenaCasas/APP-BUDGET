@@ -1,0 +1,118 @@
+* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    list-style: none;
+}
+
+
+.sectionRegister{
+    background-color: rgb(148, 147, 147);
+    width: 400px;
+    height:600px;
+    margin:25vh auto;
+    border-radius: 9px;
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    color: #FFFFFF;
+    box-shadow: 0 10px 25px rgba(106, 114, 119, 0.7);
+}
+
+.registerTitle{
+    font-family: 'Open Sans', sans-serif;
+    margin-bottom: 25px;
+}
+
+.formGroup{
+    text-align:left;
+    margin-left: 25px;
+    margin-right: 25px;
+    display:flex;
+    flex-direction:column;
+    margin-bottom: 25px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.formGroup > input{
+    margin-top: 5px;
+    height: 40px;
+    border-radius: 2px;
+    border:none;
+    padding:5px;
+}
+
+.registerBtn:hover{
+    background-color: #4c7aa5;
+}
+
+.registerBtn{
+    margin: auto;
+    font-family: 'Open Sans', sans-serif;
+    width: 100px;
+    height: 40px;
+    border:none;
+    border-radius: 8px;
+    color:#FFFFFF;
+    padding-top: 10px;
+    background-color: #7598b8;
+    cursor: pointer;
+}
+
+@media (max-width:600px){
+
+    .btns-Login{
+        margin-top: 5vh;
+    }
+    .formGroup{
+        text-align:left;
+        margin-left: 25px;
+        margin-right: 25px;
+        display:flex;
+        flex-direction:column;
+        margin-bottom: 25px;
+        font-family: 'Open Sans', sans-serif;
+    }
+    
+    .formGroup > input{
+        margin-top: 5px;
+        height: 40px;
+        border-radius: 2px;
+        border:none;
+        padding:5px;
+    }
+    
+    .loginBtn{
+        font-family: 'Open Sans', sans-serif;
+        width: 100px;
+        height: 40px;
+        border:none;
+        border-radius: 8px;
+        background-color: #4c7aa5;
+        color:#FFFFFF;
+        padding-top: 10px;
+        cursor: pointer;
+    }
+    
+    
+    .loginBtn:hover{
+        background-color: #7598b8;
+    }
+
+    .sectionRegister{
+        background-color: rgb(217, 209, 209);
+        width: 400px;
+        height:600px;
+        margin:25vh auto;
+        border-radius: 9px;
+        text-align:center;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        color: rgb(124, 118, 118);   
+        box-shadow: 0 10px 25px rgba(106, 114, 119, 0.7);
+    }
+}
