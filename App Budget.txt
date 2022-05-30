@@ -1,0 +1,64 @@
+-- MySQL Workbench Forward Engineering
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
+
+-- -----------------------------------------------------
+-- Schema mydb
+-- -----------------------------------------------------
+-- -----------------------------------------------------
+-- Schema app-budget
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema app-budget
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `app-budget` DEFAULT CHARACTER SET utf8mb4 ;
+USE `app-budget` ;
+
+-- -----------------------------------------------------
+-- Table `app-budget`.`user`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `app-budget`.`user` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(45) NOT NULL,
+  `lastName` VARCHAR(45) NOT NULL,
+  `email` VARCHAR(50) NOT NULL,
+  `password` VARCHAR(100) NOT NULL,
+  `isAdmin` TINYINT(1) NOT NULL DEFAULT 0,
+  `updated_at` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `created_at` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `app-budget`.`budget`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `app-budget`.`budget` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `type` ENUM("INCOME", "EGRESS") NOT NULL,
+  `amount` INT NOT NULL,
+  `concept` VARCHAR(200) NOT NULL,
+  `created_at` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `updated_at` DATE NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+  `user_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_budget_user_idx` (`user_id` ASC),
+  CONSTRAINT `fk_budget_user`
+    FOREIGN KEY (`user_id`)
+    REFERENCES `app-budget`.`user` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+INSERT INTO `app-budget`.`user` (`name`, `lastName`, `email`, `password`, `isAdmin`)
+VALUES ('Administrador', 'admin', 'admin@gmail.com', 'admin123', '1');
+ 
+ SELECT *FROM budget;
+  SELECT *FROM user;
